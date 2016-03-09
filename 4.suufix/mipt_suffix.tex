@@ -1,0 +1,89 @@
+\documentclass[letterpaper, 11pt]{article}
+
+% set version variable
+\newcommand{\versionnumber}{0.1}
+
+% russian language
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english, russian]{babel}
+
+% math
+\usepackage{mathtools}
+\usepackage{amsmath}
+
+\usepackage{amssymb} % some math symbols
+% abs function
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+
+% enumerate
+\usepackage{enumerate}
+
+% set type and margins of the page
+\usepackage{geometry}  % document margins
+\geometry{letterpaper, left=1.4in, right = 1.4in, top = 1.7in, bottom = 1.7in}
+
+% color links in content
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=red,
+    urlcolor=blue,
+    linktoc=all
+}
+
+% indent at first \par after section
+\usepackage{indentfirst}
+
+% fixed table and figures in section
+\usepackage{float}
+
+% colors
+\usepackage{color}
+\usepackage[usenames,dvipsnames]{xcolor}
+
+% paragraph indent
+\setlength{\parskip}{0.5em}
+
+\title{\large{Краткий конспект}\\
+\LARGE{Лекция 4. Суффиксные деревья}\\
+\normalsize версия \versionnumber (\textcolor{NavyBlue}{незавершенная})}
+\date{7 марта, 2016}
+\author{Д. Ищенко\thanks{МФТИ} \and Б. Коварский\footnotemark[1]
+\and И. Алтухов\footnotemark[1] \and Д. Алексеев\footnotemark[1]}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\clearpage
+
+% let's go
+\section{Задача поиска k мотивов в геноме}
+\par
+Отлично справляемся, когда ищем один мотив длиной $p$ в геноме длиной $n$ за $O(p + m)$, но если мотивов $k$ штук, то сложность всех поисков $O((p + n) \cdot k) = O(kn)$. Это уже хуже. Например, при картировании ридов значения $k$ могуть быть порядка $10^6 - 10^8$.
+\section{Cуффиксное дерево}
+\par
+Суффиксы, что из себя представляет дерево. Сколько листьев, сколько узлов, ребер и т.д.
+\section{Алгоритм посроения $O(n^2)$}
+\par
+Как хранить дерево? Как построить дерево за $O(n^2)$. Псевдокод.
+\section{Поиск в глубину}
+\par
+Решаем задачу поиска мотива, как посчитать количество вхождений?
+\section{Какие еще задачи можно решить с помощью дерева}
+\par
+Поиск повтора, поиск максимальной общей подстроки, нечеткий поиск.
+
+\section{Ссылки}
+
+\begingroup
+\renewcommand{\section}[2]{}%
+\begin{thebibliography}{7}
+\bibitem{Frank}
+Gusfield D. Algorithms on strings, trees and sequences: computer science and computational biology. – Cambridge university press, 1997.
+
+
+\end{thebibliography}
+\endgroup
+
+\end{document}
