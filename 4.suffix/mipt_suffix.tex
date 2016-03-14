@@ -121,7 +121,7 @@
 \end{enumerate}
 
 \clearpage
-\section{Алгоритм посроения $O(n^2)$}
+\section{Алгоритм построения $O(n^2)$}
 
 \begin{figure}[H]
   \center{
@@ -156,10 +156,10 @@
 \item[]
 
 \If{$to\_node = -1$}
-\State $...$ \Comment{Добавляем новый лист и ребро}
+\State $...$ \Comment{Добавляем новый лист}
 \State $isAdded \gets True$
 \Else
-\For{$p \gets 1, len(edges[to\_node])$}
+\For{$p \gets 1, len(edges[to\_node]) + 1$}
 
 \If{$suf[j + p] != edges[to\_node][p]$}
 \State $...$ \Comment{Добавляем новый лист и внутреннюю вершину}
