@@ -1,0 +1,81 @@
+\documentclass[letterpaper, 11pt]{article}
+
+% set version variable
+\newcommand{\versionnumber}{0.1}
+
+% russian language
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english, russian]{babel}
+
+% math
+\usepackage{mathtools}
+\usepackage{amsmath}
+
+\usepackage{amssymb} % some math symbols
+% abs function
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+
+% enumerate
+\usepackage{enumerate}
+
+% set type and margins of the page
+\usepackage{geometry}  % document margins
+\geometry{letterpaper, left=1.4in, right = 1.4in, top = 1.7in, bottom = 1.7in}
+
+% color links in content
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=red,
+    urlcolor=blue,
+    linktoc=all
+}
+
+% indent at first \par after section
+\usepackage{indentfirst}
+
+% fixed table and figures in section
+\usepackage{float}
+
+% colors
+\usepackage{color}
+\usepackage[usenames,dvipsnames]{xcolor}
+
+% paragraph indent
+\setlength{\parskip}{0.5em}
+
+% pseudocode
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+
+\title{\large{Краткий конспект}\\
+\LARGE{Лекция 5. Преобразование Барроуза-Уилера}\\
+\normalsize версия \versionnumber (\textcolor{NavyBlue}{draft})}
+\date{28 марта, 2016}
+\author{\underline{Д. Ищенко\thanks{МФТИ}} \and Б. Коварский\footnotemark[1]
+\and И. Алтухов\footnotemark[1] \and Д. Алексеев\footnotemark[1]}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\clearpage
+
+% let's go
+\section{Оценка памяти необходимой для хранения суффиксного дерева}
+\section{Сжатие данных}
+\section{Преобразование Барроуза-Уилера}
+\section{Индексы Ферраджина-Манзини}
+\section{Поиск мотива}
+\section{Определение количества вхождений}
+\section{Ссылки}
+
+\begingroup
+\renewcommand{\section}[2]{}%
+\begin{thebibliography}{7}
+
+
+\end{thebibliography}
+\endgroup
+
+\end{document}
