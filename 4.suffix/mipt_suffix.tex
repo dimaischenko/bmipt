@@ -136,7 +136,7 @@
   \caption{Пример массивов $nodes$ и $edges$ для дерева последовательности TTA\$.}
 \end{figure}
 
-Ниже приведен псевдокод создания этих двух массивов для строки $S$.
+Ниже приведен псевдокод создания этих двух массивов для строки $S$ (код в стиле Python, индексация массивов и строк с нулевого индекса, x[i:] все элементы с $i$-го \textit{включительно} до последнего, x[:i] -- все элементы с нулевого до $i$-го \textit{исключая}):
 
 \clearpage
 \begin{algorithmic}[1]
@@ -147,7 +147,7 @@
 
 \item[]
 \For{$i\gets 1, len(S)$}
-\State $suf \gets S[i..len(S)]$
+\State $suf \gets S[i:]$
 \State $j \gets 0$
 \State $cur\_node \gets 0$
 \State $isAdded \gets False$
@@ -183,7 +183,7 @@
 
 \For{$m \gets 0, len(nodes[cur\_node]) - 1$}
   \If{$nodes[cur\_node][m] == to\_node$}
-    \State $nodes[cur\_node][m] == len(nodes) - 1$
+    \State $nodes[cur\_node][m] = len(nodes) - 1$
   \EndIf
 \EndFor
 
