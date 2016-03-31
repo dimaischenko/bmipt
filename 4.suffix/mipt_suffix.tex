@@ -150,11 +150,12 @@
 \State $suf \gets S[i..len(S)]$
 \State $j \gets 0$
 \State $cur\_node \gets 0$
-\State $to\_node \gets -1$
 \State $isAdded \gets False$
 
 \item[]
 \While{not isAdded}
+\State $to\_node \gets -1$
+
 \For{$k \;\; in \;\;  nodes[cur\_node]$}
 \If{$suf[j] = edges[k][0]$}
 \State $to\_node \gets k$
@@ -164,13 +165,31 @@
 \item[]
 
 \If{$to\_node = -1$}
-\State $...$ \Comment{Добавляем новый лист}
+\State $nodes.append([-1])$ \Comment{Добавляем новый лист}
+\State $edges.append(suf[j:])$  \Comment{Ребро к новому листу}
+\State $nodes[cur\_node].append(len(nodes) - 1)$ \Comment{Ссылка на новый}
 \State $isAdded \gets True$
 \Else
-\For{$p \gets 1, len(edges[to\_node]) + 1$}
+\For{$p \gets 1, len(edges[to\_node]) - 1$}
 
 \If{$suf[j + p] != edges[to\_node][p]$}
-\State $...$ \Comment{Добавляем новый лист и внутреннюю вершину}
+\State $nodes.append([-1])$ \Comment{Добавляем новый лист}
+\State $edges.append(suf[j + p:])$ \Comment{Ребро к новому листу}
+\State $nodes.append([to\_node, len(nodes - 1)])$ \Comment{Внутренний узел}
+\State $edges.append(edges[to\_node][:p])$ \Comment{Ребрко к узлу}
+
+\item[]
+\item[] \Comment{Обновить ссылку из текущего на внутренний}
+
+\For{$m \gets 0, len(nodes[cur\_node]) - 1$}
+  \If{$nodes[cur\_node][m] == to\_node$}
+    \State $nodes[cur\_node][m] == len(nodes) - 1$
+  \EndIf
+\EndFor
+
+\State $edges[to\_node] = edges[to\_node][p:]$ \Comment{Обновить ребро}
+
+
 \State $isAdded \gets True$
 \State $break$
 \EndIf
