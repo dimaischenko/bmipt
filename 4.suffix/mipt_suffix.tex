@@ -157,14 +157,14 @@
 \State $to\_node \gets -1$
 
 \For{$k \;\; in \;\;  nodes[cur\_node]$}
-\If{$suf[j] = edges[k][0]$}
+\If{$suf[j] == edges[k][0]$}
 \State $to\_node \gets k$
 \EndIf
 \EndFor
 
 \item[]
 
-\If{$to\_node = -1$}
+\If{$to\_node == -1$}
 \State $nodes.append([-1])$ \Comment{Добавляем новый лист}
 \State $edges.append(suf[j:])$  \Comment{Ребро к новому листу}
 \State $nodes[cur\_node].append(len(nodes) - 1)$ \Comment{Ссылка на новый}
