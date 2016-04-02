@@ -146,7 +146,7 @@
 \State $edges \gets [`` ``, S]$
 
 \item[]
-\For{$i\gets 1, len(S)$}
+\For{$i\gets 1, len(S) - 1$}
 \State $suf \gets S[i:]$
 \State $j \gets 0$
 \State $cur\_node \gets 0$
@@ -175,17 +175,13 @@
 \If{$suf[j + p] != edges[to\_node][p]$}
 \State $nodes.append([-1])$ \Comment{Добавляем новый лист}
 \State $edges.append(suf[j + p:])$ \Comment{Ребро к новому листу}
-\State $nodes.append([to\_node, len(nodes - 1)])$ \Comment{Внутренний узел}
+\State $nodes.append([to\_node, len(nodes) - 1])$ \Comment{Внутренний узел}
 \State $edges.append(edges[to\_node][:p])$ \Comment{Ребрко к узлу}
 
 \item[]
 \item[] \Comment{Обновить ссылку из текущего на внутренний}
-
-\For{$m \gets 0, len(nodes[cur\_node]) - 1$}
-  \If{$nodes[cur\_node][m] == to\_node$}
-    \State $nodes[cur\_node][m] = len(nodes) - 1$
-  \EndIf
-\EndFor
+\State $nodes[cur\_node].remove(to\_node)$
+\State $nodes[cur\_node].append(len(nodes) - 1)$ 
 
 \State $edges[to\_node] = edges[to\_node][p:]$ \Comment{Обновить ребро}
 
