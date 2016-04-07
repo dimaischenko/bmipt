@@ -99,7 +99,7 @@ If multiple solutions exist, then you may output any one.
   for i in 1..nrow
     cur_row = [...] # правильно задать первый (нулевой) элемент
     for j in 1..ncol
-      cur_row[i][j] = max(...)
+      cur_row[j] = max(...)
     prev_row = cur_row
   
   S = prev_row[m-1]
@@ -113,9 +113,9 @@ If multiple solutions exist, then you may output any one.
   for i in 1..nrow
     cur_row = [...] # правильно задать первый (нулевой) элемент
     for j in 1..ncol
-      cur_row[i][j] = max(...)
-      if cur_row[i][j] > S:
-        S = cur_row[i][j]
+      cur_row[j] = max(...)
+      if cur_row[j] > S:
+        S = cur_row[j]
     prev_row = cur_row
 \end{verbatim}
 
@@ -141,12 +141,12 @@ If multiple solutions exist, then you may output any one.
     cur_row = [...] # правильно задать первый (нулевой) элемент
     cur_st_row = [...] # правильно задать первый (нулевой) элемент
     for j in 1..ncol
-      cur_row[i][j] = max(...)
-      cur_st_row[i][j] = ... # задать в соответствии тому, откуда пришли
+      cur_row[j] = max(...)
+      cur_st_row[j] = ... # задать в соответствии тому, откуда пришли
       
-      if cur_row[i][j] > S:
-        S = cur_row[i][j]
-        start = cur_st_row[i][j]
+      if cur_row[j] > S:
+        S = cur_row[j]
+        start = cur_st_row[j]
         end = i * ncol + j
     prev_row = cur_row
     prev_st_row = cur_st_row
